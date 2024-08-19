@@ -14,6 +14,12 @@ public class Main extends JPanel implements KeyListener {
     private final int objectHeight = 50;
     private final int moveStep = 10;
 
+    private int x2 = 300; // Initial x position of the object
+    private int y2 = 100; // Initial y position of the object
+    private final int objectWidth2 = 50;
+    private final int objectHeight2 = 50;
+    private final int moveStep2 = 8;
+
     public Main() {
         // Set the size of the JPanel
         this.setPreferredSize(new Dimension(400, 400));
@@ -29,6 +35,7 @@ public class Main extends JPanel implements KeyListener {
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+
     }
 
     @Override
@@ -37,6 +44,9 @@ public class Main extends JPanel implements KeyListener {
         // Draw the object (a rectangle in this case)
         g.setColor(Color.RED);
         g.fillRect(x, y, objectWidth, objectWidth);
+
+        g.setColor(Color.BLUE);
+        g.fillRect(x2, y2, objectWidth2, objectHeight2);
     }
 
     // Implement the KeyListener methods
@@ -46,20 +56,20 @@ public class Main extends JPanel implements KeyListener {
         int panelWidth = this.getWidth();
         int panelHeight = this.getHeight();
 
-        if (e.getKeyCode() == KeyEvent.VK_W){
-            if (y - moveStep >= 0){
+        if (e.getKeyCode() == KeyEvent.VK_W) {
+            if (y - moveStep >= 0) {
                 y -= moveStep;
             }
-        } else if (e.getKeyCode() == KeyEvent.VK_A){
-            if (x - moveStep >= 0){
+        } else if (e.getKeyCode() == KeyEvent.VK_A) {
+            if (x - moveStep >= 0) {
                 x -= moveStep;
             }
-        }else if (e.getKeyCode() == KeyEvent.VK_S){
-            if (y + moveStep + objectHeight <= panelHeight){
+        } else if (e.getKeyCode() == KeyEvent.VK_S) {
+            if (y + moveStep + objectHeight <= panelHeight) {
                 y += moveStep;
             }
-        }else if (e.getKeyCode() == KeyEvent.VK_D) {
-            if (x + moveStep + objectWidth <= panelWidth){
+        } else if (e.getKeyCode() == KeyEvent.VK_D) {
+            if (x + moveStep + objectWidth <= panelWidth) {
                 x += moveStep;
             }
         }
@@ -75,6 +85,5 @@ public class Main extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) {
         // Not needed in this example
     }
-
 
 }
