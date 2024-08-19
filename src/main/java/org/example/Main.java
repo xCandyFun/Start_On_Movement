@@ -3,10 +3,12 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Main extends JPanel implements KeyListener {
+public class Main extends JPanel implements KeyListener, ActionListener {
 
     private int x = 100; // Initial x position of the object
     private int y = 100; // Initial y position of the object
@@ -19,6 +21,7 @@ public class Main extends JPanel implements KeyListener {
     private final int objectWidth2 = 50;
     private final int objectHeight2 = 50;
     private final int moveStep2 = 8;
+    private Timer timer;
 
     public Main() {
         // Set the size of the JPanel
@@ -26,6 +29,10 @@ public class Main extends JPanel implements KeyListener {
         // Add the KeyListener to the JPanel
         this.setFocusable(true);
         this.addKeyListener(this);
+
+        // Set up a timer to move the second object automatically
+        timer = new Timer(100, this); // Timer will trigger every 100 milliseconds
+        timer.start();
     }
 
     public static void main(String[] args) {
@@ -47,6 +54,8 @@ public class Main extends JPanel implements KeyListener {
 
         g.setColor(Color.BLUE);
         g.fillRect(x2, y2, objectWidth2, objectHeight2);
+
+        
     }
 
     // Implement the KeyListener methods
@@ -73,8 +82,31 @@ public class Main extends JPanel implements KeyListener {
                 x += moveStep;
             }
         }
+
         repaint();
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+
+        int panelWidth = this.getWidth();
+        int panelHeight = this.getHeight();
+
+        // Movement logic for object 2 (Blue, Computer-controlled)
+        // Example: Move right until hitting the boundary, then move down
+        if (x2 + moveStep2 + objectWidth <= panelWidth) {
+            x2 += moveStep2;
+        } else {
+            x2 = 0; // Reset to the left side after reaching the right edge
+            y2 += objectHeight; // Move down one step
+            if (y2 + objectHeight > panelHeight) {
+                y2 = 0; // Reset to the top after reaching the bottom
+            }
+        }
+
+        repaint();
+    }
+
 
     @Override
     public void keyReleased(KeyEvent e) {
