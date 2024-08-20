@@ -55,7 +55,6 @@ public class Main extends JPanel implements KeyListener, ActionListener {
         g.setColor(Color.BLUE);
         g.fillRect(x2, y2, objectWidth2, objectHeight2);
 
-        
     }
 
     // Implement the KeyListener methods
