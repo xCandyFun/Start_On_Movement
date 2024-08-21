@@ -14,24 +14,24 @@ public class Main extends JPanel implements KeyListener, ActionListener {
     private int y = 100; // Initial y position of the object
     private final int objectWidth = 50;
     private final int objectHeight = 50;
-    private final int moveStep = 10;
+    private final int moveStep = 30;
 
     private int x2 = 300; // Initial x position of the object
     private int y2 = 100; // Initial y position of the object
     private final int objectWidth2 = 50;
     private final int objectHeight2 = 50;
-    private final int moveStep2 = 8;
+    private final int moveStep2 = 2;
     private Timer timer;
 
     public Main() {
         // Set the size of the JPanel
-        this.setPreferredSize(new Dimension(400, 400));
+        this.setPreferredSize(new Dimension(800, 800));
         // Add the KeyListener to the JPanel
         this.setFocusable(true);
         this.addKeyListener(this);
 
         // Set up a timer to move the second object automatically
-        timer = new Timer(100, this); // Timer will trigger every 100 milliseconds
+        timer = new Timer(30, this); // Timer will trigger every 100 milliseconds
         timer.start();
     }
 
@@ -88,19 +88,15 @@ public class Main extends JPanel implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
 
-        int panelWidth = this.getWidth();
-        int panelHeight = this.getHeight();
+        int deltaX = x - x2;
 
-        // Movement logic for object 2 (Blue, Computer-controlled)
-        // Example: Move right until hitting the boundary, then move down
-        if (x2 + moveStep2 + objectWidth <= panelWidth) {
-            x2 += moveStep2;
-        } else {
-            x2 = 0; // Reset to the left side after reaching the right edge
-            y2 += objectHeight; // Move down one step
-            if (y2 + objectHeight > panelHeight) {
-                y2 = 0; // Reset to the top after reaching the bottom
-            }
+        int deltaY = y - y2;
+
+        if (deltaX != 0){
+            x2 += moveStep2 * (deltaX / Math.abs(deltaX));// Move x2 towards x1
+        }
+        if (deltaY != 0){
+            y2 += moveStep2 * (deltaY / Math.abs(deltaY));// Move y2 towards y1
         }
 
         repaint();
