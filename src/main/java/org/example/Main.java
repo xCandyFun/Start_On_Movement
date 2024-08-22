@@ -42,7 +42,6 @@ public class Main extends JPanel implements KeyListener, ActionListener {
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
     }
 
     @Override
