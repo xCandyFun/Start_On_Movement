@@ -87,7 +87,6 @@ public class Main extends JPanel implements KeyListener, ActionListener {
     public void actionPerformed(ActionEvent e){
 
         int deltaX = x - x2;
-
         int deltaY = y - y2;
 
         if (deltaX != 0){
