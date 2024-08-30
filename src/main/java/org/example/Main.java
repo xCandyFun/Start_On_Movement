@@ -99,7 +99,6 @@ public class Main extends JPanel implements KeyListener, ActionListener {
         repaint();
     }
 
-
     @Override
     public void keyReleased(KeyEvent e) {
         // Not needed in this example
