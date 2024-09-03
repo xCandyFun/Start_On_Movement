@@ -28,7 +28,6 @@ public class Main extends JPanel implements KeyListener, ActionListener {
         // Add the KeyListener to the JPanel
         this.setFocusable(true);
         this.addKeyListener(this);
-
         // Set up a timer to move the second object automatically
         timer = new Timer(30, this); // Timer will trigger every 100 milliseconds
         timer.start();
