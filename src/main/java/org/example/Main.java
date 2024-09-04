@@ -48,7 +48,7 @@ public class Main extends JPanel implements KeyListener, ActionListener {
         // Draw the object (a rectangle in this case)
         g.setColor(Color.RED);
         g.fillRect(x, y, objectWidth, objectWidth);
-
+        // Draw the second object
         g.setColor(Color.BLUE);
         g.fillRect(x2, y2, objectWidth2, objectHeight2);
 
