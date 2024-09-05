@@ -9,16 +9,16 @@ import java.awt.event.KeyListener;
 
 public class Main extends JPanel implements KeyListener, ActionListener {
 
-    private int x = 100; // Initial x position of the object
-    private int y = 100; // Initial y position of the object
-    private final int objectWidth = 50;
-    private final int objectHeight = 50;
+    private int x = 100, y = 100; // Initial x position of the object
+    //private int y = 100; // Initial y position of the object
+    private final int objectWidth = 50, objectHeight = 50;
+    //private final int objectHeight = 50;
     private final int moveStep = 30;
 
-    private int x2 = 300; // Initial x position of the object
-    private int y2 = 100; // Initial y position of the object
-    private final int objectWidth2 = 50;
-    private final int objectHeight2 = 50;
+    private int x2 = 300, y2 = 100; // Initial x position of the object
+    //private int y2 = 100; // Initial y position of the object
+    private final int objectWidth2 = 50, objectHeight2 = 50;
+    //private final int objectHeight2 = 50;
     private final int moveStep2 = 2;
     private Timer timer;
 
