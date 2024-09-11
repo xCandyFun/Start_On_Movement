@@ -85,8 +85,7 @@ public class Main extends JPanel implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
 
-        int deltaX = x - x2;
-        int deltaY = y - y2;
+        int deltaX = x - x2, deltaY = y - y2;
 
         if (deltaX != 0){
             x2 += moveStep2 * (deltaX / Math.abs(deltaX));// Move x2 towards x1
